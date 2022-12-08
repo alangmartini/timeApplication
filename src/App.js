@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import { Link, Route } from 'react-router-dom';
 import './App.css';
+import Counter from './pages/Counter';
+import Cronometer from './pages/Cronometer';
+import Temporizador from './pages/Temporizador';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Página Inicial</h1>
+
+      <Link to="/counter"> Counter </Link>
+      <Link to="/cronometer"> Cronometro </Link>
+      <Link to="/temporizador"> Temporizador </Link>
+
+      <Route path="/counter" render={ () => <Counter /> } />
+      <Route path="/cronometer" render={ () => <Cronometer /> } />
+      <Route path="/temporizador" render={ () => <Temporizador /> } />
     </div>
   );
 }
